@@ -90,9 +90,9 @@ function SceneContent({ scrollProgress }: SceneCanvasProps) {
         />
       </Points>
 
-      <group position={[0, sectionOffsets[0], 0]}>
+      <group position={[4.8, sectionOffsets[0] - 2.2, -1.6]}>
         <Float speed={1.2} floatIntensity={1.8} rotationIntensity={0.7}>
-          <Sphere args={[1.6, 48, 48]} position={[0, 0, -1]}>
+          <Sphere args={[1.35, 48, 48]} position={[0, 0, -1]}>
             <meshStandardMaterial
               color="#78cfff"
               emissive={new Color("#52e0ff")}
@@ -103,10 +103,10 @@ function SceneContent({ scrollProgress }: SceneCanvasProps) {
             />
           </Sphere>
         </Float>
-        {[-2.4, -1.1, 1.1, 2.4].map((x, index) => (
+        {[-1.9, -0.75, 0.75, 1.9].map((x, index) => (
           <Float key={x} speed={1.3 + index * 0.25} floatIntensity={1.4}>
-            <mesh position={[x, -1.6 + index * 0.45, -2 + index * 0.15]}>
-              <boxGeometry args={[0.9, 0.42, 0.25]} />
+            <mesh position={[x, -1.25 + index * 0.38, -1.9 + index * 0.15]}>
+              <boxGeometry args={[0.76, 0.38, 0.22]} />
               <meshStandardMaterial color={index % 2 === 0 ? "#5b7cff" : "#67f5d6"} />
             </mesh>
           </Float>

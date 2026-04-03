@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { categoryIconMap, skillIconMap } from "@/lib/iconography";
 import { skillCategories } from "@/lib/data";
 
 export function SkillsSection() {
@@ -24,8 +25,19 @@ export function SkillsSection() {
               whileHover={{ y: -8 }}
               className="glass-panel rounded-[32px] p-7"
             >
+              {(() => {
+                const IconSpec = categoryIconMap[category.name];
+                const CategoryIcon = IconSpec.icon;
+
+                return (
+                  <>
               <div className="flex items-center justify-between">
-                <h3 className="text-2xl font-semibold text-white">{category.name}</h3>
+                <div className="flex items-center gap-4">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/6">
+                    <CategoryIcon className={IconSpec.className} size={IconSpec.size ?? 20} />
+                  </div>
+                  <h3 className="text-2xl font-semibold text-white">{category.name}</h3>
+                </div>
                 <div className="rounded-full border border-white/10 px-3 py-1 text-xs uppercase tracking-[0.28em] text-slate-400">
                   Interactive node cluster
                 </div>
@@ -36,12 +48,27 @@ export function SkillsSection() {
                   <motion.span
                     key={skill}
                     whileHover={{ scale: 1.05 }}
-                    className="rounded-full border border-cyan-300/18 bg-cyan-300/8 px-4 py-2 text-sm text-cyan-100"
+                    className="inline-flex items-center gap-2 rounded-full border border-cyan-300/18 bg-cyan-300/8 px-4 py-2 text-sm text-cyan-100"
                   >
+                    {(() => {
+                      const iconSpec = skillIconMap[skill];
+
+                      if (!iconSpec) {
+                        return null;
+                      }
+
+                      const SkillIcon = iconSpec.icon;
+                      return (
+                        <SkillIcon className={iconSpec.className} size={iconSpec.size ?? 14} />
+                      );
+                    })()}
                     {skill}
                   </motion.span>
                 ))}
               </div>
+                  </>
+                );
+              })()}
             </motion.div>
           ))}
         </div>

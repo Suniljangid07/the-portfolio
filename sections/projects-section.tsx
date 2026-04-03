@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { FiArrowUpRight } from "react-icons/fi";
+import { projectIconMap, skillIconMap } from "@/lib/iconography";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { projects } from "@/lib/data";
 
@@ -31,9 +33,25 @@ export function ProjectsSection() {
               onClick={() => setActiveProject(project.slug)}
               className="glass-panel rounded-[32px] p-7 text-left"
             >
+              {(() => {
+                const iconSpec = projectIconMap[project.slug];
+                const ProjectIcon = iconSpec?.icon;
+
+                return (
+                  <>
               <div className="flex items-center justify-between gap-4">
-                <span className="text-xs uppercase tracking-[0.3em] text-cyan-200">Case study</span>
-                <span className="text-sm text-slate-400">Tap for deep dive</span>
+                <div className="flex items-center gap-3">
+                  {ProjectIcon ? (
+                    <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/6">
+                      <ProjectIcon className={iconSpec.className} size={iconSpec.size ?? 20} />
+                    </div>
+                  ) : null}
+                  <span className="text-xs uppercase tracking-[0.3em] text-cyan-200">Case study</span>
+                </div>
+                <span className="inline-flex items-center gap-2 text-sm text-slate-400">
+                  Tap for deep dive
+                  <FiArrowUpRight size={16} />
+                </span>
               </div>
               <h3 className="mt-6 text-3xl font-semibold tracking-[-0.04em] text-white">
                 {project.title}
@@ -44,12 +62,27 @@ export function ProjectsSection() {
                 {project.stack.map((item) => (
                   <span
                     key={item}
-                    className="rounded-full border border-white/10 bg-white/6 px-3 py-1.5 text-xs uppercase tracking-[0.2em] text-slate-300"
+                    className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/6 px-3 py-1.5 text-xs uppercase tracking-[0.2em] text-slate-300"
                   >
+                    {(() => {
+                      const iconSpec = skillIconMap[item];
+
+                      if (!iconSpec) {
+                        return null;
+                      }
+
+                      const StackIcon = iconSpec.icon;
+                      return (
+                        <StackIcon className={iconSpec.className} size={iconSpec.size ?? 13} />
+                      );
+                    })()}
                     {item}
                   </span>
                 ))}
               </div>
+                  </>
+                );
+              })()}
             </motion.button>
           ))}
         </div>
@@ -75,7 +108,23 @@ export function ProjectsSection() {
               <div className="flex items-start justify-between gap-4">
                 <div>
                   <div className="text-xs uppercase tracking-[0.3em] text-cyan-200">Expanded view</div>
-                  <h3 className="mt-4 text-3xl font-semibold text-white">{selectedProject.title}</h3>
+                  <div className="mt-4 flex items-center gap-4">
+                    {(() => {
+                      const iconSpec = projectIconMap[selectedProject.slug];
+
+                      if (!iconSpec) {
+                        return null;
+                      }
+
+                      const ProjectIcon = iconSpec.icon;
+                      return (
+                        <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/6">
+                          <ProjectIcon className={iconSpec.className} size={iconSpec.size ?? 22} />
+                        </div>
+                      );
+                    })()}
+                    <h3 className="text-3xl font-semibold text-white">{selectedProject.title}</h3>
+                  </div>
                 </div>
                 <button
                   type="button"
@@ -91,8 +140,20 @@ export function ProjectsSection() {
                 {selectedProject.stack.map((item) => (
                   <span
                     key={item}
-                    className="rounded-full border border-white/10 bg-white/6 px-3 py-1.5 text-xs uppercase tracking-[0.2em] text-slate-300"
+                    className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/6 px-3 py-1.5 text-xs uppercase tracking-[0.2em] text-slate-300"
                   >
+                    {(() => {
+                      const iconSpec = skillIconMap[item];
+
+                      if (!iconSpec) {
+                        return null;
+                      }
+
+                      const StackIcon = iconSpec.icon;
+                      return (
+                        <StackIcon className={iconSpec.className} size={iconSpec.size ?? 13} />
+                      );
+                    })()}
                     {item}
                   </span>
                 ))}

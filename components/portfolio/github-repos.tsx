@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { FaGithub, FaStar } from "react-icons/fa6";
+import { FiArrowUpRight } from "react-icons/fi";
 import { repoFallbacks } from "@/lib/data";
 
 type Repo = {
@@ -81,10 +83,11 @@ export function GithubRepos() {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ delay: index * 0.08, duration: 0.55 }}
           whileHover={{ y: -6, rotateX: 3, rotateY: -3 }}
-          className="glass-panel group rounded-[28px] p-6"
+          className="glass-panel glass-panel-soft group rounded-[28px] p-6"
         >
           <div className="flex items-center justify-between">
-            <span className="text-sm uppercase tracking-[0.25em] text-slate-400">
+            <span className="inline-flex items-center gap-2 text-sm uppercase tracking-[0.25em] text-slate-400">
+              <FaGithub className="text-slate-100" size={16} />
               Repository
             </span>
             <span className="rounded-full border border-white/10 px-3 py-1 text-xs text-cyan-200">
@@ -96,9 +99,13 @@ export function GithubRepos() {
             {repo.description ?? "Public work focused on product systems and engineering craft."}
           </p>
           <div className="mt-6 flex items-center justify-between text-sm text-slate-400">
-            <span>{repo.stargazers_count ?? 0} stars</span>
-            <span className="transition-transform duration-300 group-hover:translate-x-1">
-              Open source signal →
+            <span className="inline-flex items-center gap-2">
+              <FaStar className="text-amber-300" size={14} />
+              {repo.stargazers_count ?? 0} stars
+            </span>
+            <span className="inline-flex items-center gap-2 transition-transform duration-300 group-hover:translate-x-1">
+              Open source signal
+              <FiArrowUpRight size={15} className="text-cyan-300" />
             </span>
           </div>
         </motion.a>

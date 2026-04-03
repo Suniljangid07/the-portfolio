@@ -1,3 +1,4 @@
+import { socialIconMap } from "@/lib/iconography";
 import { footerLinks } from "@/lib/data";
 
 export function FooterSection() {
@@ -19,15 +20,24 @@ export function FooterSection() {
           </div>
           <div className="flex flex-wrap gap-3">
             {footerLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                target={link.href.startsWith("http") ? "_blank" : undefined}
-                rel={link.href.startsWith("http") ? "noreferrer" : undefined}
-                className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-200 transition hover:border-cyan-300/30 hover:text-white"
-              >
-                {link.label}
-              </a>
+              (() => {
+                const iconSpec = socialIconMap[link.label];
+                const SocialIcon = iconSpec?.icon;
+                return (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    target={link.href.startsWith("http") ? "_blank" : undefined}
+                    rel={link.href.startsWith("http") ? "noreferrer" : undefined}
+                    className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-200 transition hover:border-cyan-300/30 hover:text-white"
+                  >
+                    {SocialIcon ? (
+                      <SocialIcon className={iconSpec.className} size={iconSpec.size ?? 16} />
+                    ) : null}
+                    {link.label}
+                  </a>
+                );
+              })()
             ))}
           </div>
         </div>

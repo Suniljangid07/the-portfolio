@@ -2,9 +2,14 @@
 
 import { motion } from "framer-motion";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { experienceIcons } from "@/lib/iconography";
 import { experiences } from "@/lib/data";
 
 export function ExperienceSection() {
+  const PeriodIcon = experienceIcons.period.icon;
+  const RoleIcon = experienceIcons.role.icon;
+  const LocationIcon = experienceIcons.location.icon;
+
   return (
     <section id="experience" className="relative min-h-screen px-6 py-24 sm:px-10 lg:px-16">
       <div className="mx-auto max-w-7xl">
@@ -24,10 +29,19 @@ export function ExperienceSection() {
               className="grid gap-6 rounded-[32px] border border-white/10 bg-[rgba(7,11,22,0.82)] p-7 shadow-[0_25px_70px_rgba(0,0,0,0.28)] lg:grid-cols-[220px_1fr]"
             >
               <div>
-                <div className="text-xs uppercase tracking-[0.3em] text-cyan-200">{item.period}</div>
+                <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-cyan-200">
+                  <PeriodIcon className={experienceIcons.period.className} size={experienceIcons.period.size} />
+                  {item.period}
+                </div>
                 <h3 className="mt-4 text-2xl font-semibold text-white">{item.company}</h3>
-                <p className="mt-2 text-sm text-slate-400">{item.role}</p>
-                <p className="mt-2 text-sm text-slate-500">{item.location}</p>
+                <p className="mt-2 inline-flex items-center gap-2 text-sm text-slate-400">
+                  <RoleIcon className={experienceIcons.role.className} size={experienceIcons.role.size} />
+                  {item.role}
+                </p>
+                <p className="mt-2 inline-flex items-center gap-2 text-sm text-slate-500">
+                  <LocationIcon className={experienceIcons.location.className} size={experienceIcons.location.size} />
+                  {item.location}
+                </p>
               </div>
               <div>
                 <p className="text-base leading-8 text-slate-300">{item.summary}</p>

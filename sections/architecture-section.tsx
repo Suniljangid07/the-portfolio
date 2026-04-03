@@ -2,6 +2,11 @@
 
 import { motion } from "framer-motion";
 import { SectionHeading } from "@/components/ui/section-heading";
+import {
+  architectureBlockIconMap,
+  architectureStageIconMap,
+  architectureSummaryIconMap,
+} from "@/lib/iconography";
 import { architectureBlocks, architectureStages } from "@/lib/data";
 
 export function ArchitectureSection() {
@@ -36,7 +41,19 @@ export function ArchitectureSection() {
               transition={{ delay: index * 0.07, duration: 0.5 }}
               className="glass-panel rounded-[26px] p-5"
             >
-              <div className="text-xs uppercase tracking-[0.28em] text-slate-500">{item.label}</div>
+              {(() => {
+                const iconSpec = architectureSummaryIconMap[item.label];
+                const SummaryIcon = iconSpec?.icon;
+
+                return (
+                  <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.28em] text-slate-500">
+                    {SummaryIcon ? (
+                      <SummaryIcon className={iconSpec.className} size={iconSpec.size ?? 16} />
+                    ) : null}
+                    {item.label}
+                  </div>
+                );
+              })()}
               <p className="mt-3 text-sm leading-7 text-white">{item.value}</p>
             </motion.div>
           ))}
@@ -70,9 +87,21 @@ export function ArchitectureSection() {
                   transition={{ delay: index * 0.08, duration: 0.55 }}
                   className="rounded-[30px] border border-white/10 bg-[rgba(4,8,18,0.72)] p-6"
                 >
+                  {(() => {
+                    const iconSpec = architectureBlockIconMap[block.id];
+                    const BlockIcon = iconSpec?.icon;
+
+                    return (
+                      <>
                   <div className="flex flex-wrap items-center justify-between gap-4">
                     <div className="flex items-center gap-4">
-                      <div className="h-3 w-3 rounded-full bg-cyan-300 shadow-[0_0_18px_rgba(92,225,255,0.95)]" />
+                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/6">
+                        {BlockIcon ? (
+                          <BlockIcon className={iconSpec.className} size={iconSpec.size ?? 20} />
+                        ) : (
+                          <div className="h-3 w-3 rounded-full bg-cyan-300 shadow-[0_0_18px_rgba(92,225,255,0.95)]" />
+                        )}
+                      </div>
                       <div>
                         <div className="text-xs uppercase tracking-[0.28em] text-slate-500">
                           {block.eyebrow}
@@ -101,6 +130,9 @@ export function ArchitectureSection() {
                     </div>
                     <p className="mt-3 text-sm leading-7 text-slate-300">{block.outcome}</p>
                   </div>
+                      </>
+                    );
+                  })()}
                 </motion.div>
               ))}
               </div>
@@ -123,13 +155,25 @@ export function ArchitectureSection() {
                     transition={{ delay: index * 0.08, duration: 0.55 }}
                     className="rounded-[24px] border border-white/8 bg-white/4 p-5"
                   >
+                    {(() => {
+                      const iconSpec = architectureStageIconMap[stage.step];
+                      const StageIcon = iconSpec?.icon;
+
+                      return (
+                        <>
                     <div className="flex items-center gap-4">
                       <div className="rounded-full border border-cyan-300/20 bg-cyan-300/8 px-3 py-1 text-xs uppercase tracking-[0.25em] text-cyan-100">
                         Stage {stage.step}
                       </div>
+                      {StageIcon ? (
+                        <StageIcon className={iconSpec.className} size={iconSpec.size ?? 16} />
+                      ) : null}
                       <div className="text-sm font-medium text-white">{stage.title}</div>
                     </div>
                     <p className="mt-4 text-sm leading-7 text-slate-300">{stage.description}</p>
+                        </>
+                      );
+                    })()}
                   </motion.div>
                 ))}
               </div>

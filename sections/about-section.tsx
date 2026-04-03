@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { aboutJourneyIconMap, aboutSummaryIconMap } from "@/lib/iconography";
 import { journey } from "@/lib/data";
 
 export function AboutSection() {
@@ -36,7 +37,19 @@ export function AboutSection() {
               transition={{ delay: index * 0.07, duration: 0.5 }}
               className="glass-panel rounded-[26px] p-5"
             >
-              <div className="text-xs uppercase tracking-[0.28em] text-slate-500">{item.label}</div>
+              {(() => {
+                const iconSpec = aboutSummaryIconMap[item.label];
+                const SummaryIcon = iconSpec?.icon;
+
+                return (
+                  <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.28em] text-slate-500">
+                    {SummaryIcon ? (
+                      <SummaryIcon className={iconSpec.className} size={iconSpec.size ?? 16} />
+                    ) : null}
+                    {item.label}
+                  </div>
+                );
+              })()}
               <p className="mt-3 text-sm leading-7 text-white">{item.value}</p>
             </motion.div>
           ))}
@@ -53,11 +66,22 @@ export function AboutSection() {
               transition={{ delay: index * 0.08, duration: 0.6 }}
               className="glass-panel rounded-[30px] p-7"
             >
+              {(() => {
+                const iconSpec = aboutJourneyIconMap[item.title];
+                const JourneyIcon = iconSpec?.icon;
+
+                return (
+                  <>
               <div className="flex flex-wrap items-start justify-between gap-4">
                 <div className="flex items-start gap-4">
                   <div className="rounded-full border border-cyan-300/20 bg-cyan-300/8 px-3 py-1 text-xs uppercase tracking-[0.25em] text-cyan-100">
                     {item.step}
                   </div>
+                  {JourneyIcon ? (
+                    <div className="mt-0.5 flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/6">
+                      <JourneyIcon className={iconSpec.className} size={iconSpec.size ?? 20} />
+                    </div>
+                  ) : null}
                   <div>
                     <div className="text-xs uppercase tracking-[0.28em] text-slate-500">
                       {item.eyebrow}
@@ -86,6 +110,9 @@ export function AboutSection() {
                 </div>
                 <p className="mt-3 text-sm leading-7 text-slate-300">{item.outcome}</p>
               </div>
+                  </>
+                );
+              })()}
             </motion.article>
           ))}
           </div>
@@ -105,16 +132,28 @@ export function AboutSection() {
                     initial={{ opacity: 0, x: 24 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, amount: 0.35 }}
-                    transition={{ delay: index * 0.08, duration: 0.5 }}
-                    className="rounded-[22px] border border-white/8 bg-white/4 p-5"
-                  >
+                  transition={{ delay: index * 0.08, duration: 0.5 }}
+                  className="rounded-[22px] border border-white/8 bg-white/4 p-5"
+                >
+                  {(() => {
+                    const iconSpec = aboutJourneyIconMap[item.title];
+                    const JourneyIcon = iconSpec?.icon;
+
+                    return (
+                      <>
                     <div className="flex items-center gap-4">
                       <div className="rounded-full border border-cyan-300/20 bg-cyan-300/8 px-3 py-1 text-xs uppercase tracking-[0.25em] text-cyan-100">
                         {item.step}
                       </div>
+                      {JourneyIcon ? (
+                        <JourneyIcon className={iconSpec.className} size={iconSpec.size ?? 16} />
+                      ) : null}
                       <div className="text-sm font-medium text-white">{item.title}</div>
                     </div>
                     <p className="mt-4 text-sm leading-7 text-slate-300">{item.signal}</p>
+                      </>
+                    );
+                  })()}
                   </motion.div>
                 ))}
               </div>

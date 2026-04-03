@@ -2,6 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { motion, useScroll } from "framer-motion";
+import { FiArrowUpRight } from "react-icons/fi";
 import { AboutSection } from "@/sections/about-section";
 import { ArchitectureSection } from "@/sections/architecture-section";
 import { ContactSection } from "@/sections/contact-section";
@@ -11,6 +12,7 @@ import { GithubSection } from "@/sections/github-section";
 import { HeroSection } from "@/sections/hero-section";
 import { ProjectsSection } from "@/sections/projects-section";
 import { SkillsSection } from "@/sections/skills-section";
+import { navIconMap } from "@/lib/iconography";
 import { navItems } from "@/lib/data";
 
 const SceneCanvas = dynamic(
@@ -35,16 +37,25 @@ export function PortfolioShell() {
       />
 
       <div className="pointer-events-none fixed left-5 top-1/2 z-40 hidden -translate-y-1/2 xl:block">
-        <div className="glass-panel rounded-full px-3 py-4">
+        <div className="glass-panel rounded-full px-3 py-12">
           <div className="flex flex-col items-center gap-3">
             {navItems.map((item) => (
-              <a
-                key={item.id}
-                href={`#${item.id}`}
-                className="pointer-events-auto rounded-full px-4 py-2 text-xs uppercase tracking-[0.25em] text-slate-300 transition hover:bg-white/10"
-              >
-                {item.label}
-              </a>
+              (() => {
+                const iconSpec = navIconMap[item.label];
+                const NavIcon = iconSpec?.icon;
+                return (
+                  <a
+                    key={item.id}
+                    href={`#${item.id}`}
+                    className="pointer-events-auto inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs uppercase tracking-[0.25em] text-slate-300 transition hover:bg-white/10"
+                  >
+                    {NavIcon ? (
+                      <NavIcon className={iconSpec.className} size={iconSpec.size ?? 14} />
+                    ) : null}
+                    {item.label}
+                  </a>
+                );
+              })()
             ))}
           </div>
         </div>
@@ -58,17 +69,27 @@ export function PortfolioShell() {
             </a>
             <div className="hidden items-center gap-5 md:flex">
               {navItems.slice(1, -1).map((item) => (
-                <a key={item.id} href={`#${item.id}`} className="text-sm text-slate-300 transition hover:text-white">
-                  {item.label}
-                </a>
+                (() => {
+                  const iconSpec = navIconMap[item.label];
+                  const NavIcon = iconSpec?.icon;
+                  return (
+                    <a key={item.id} href={`#${item.id}`} className="inline-flex items-center gap-2 text-sm text-slate-300 transition hover:text-white">
+                      {NavIcon ? (
+                        <NavIcon className={iconSpec.className} size={iconSpec.size ?? 14} />
+                      ) : null}
+                      {item.label}
+                    </a>
+                  );
+                })()
               ))}
             </div>
             <a
               href="https://www.linkedin.com/in/suniljangid07/"
               target="_blank"
               rel="noreferrer"
-              className="rounded-full border border-white/10 px-4 py-2 text-sm text-slate-200 transition hover:border-cyan-300/30 hover:text-white"
+              className="inline-flex items-center gap-2 rounded-full border border-white/10 px-4 py-2 text-sm text-slate-200 transition hover:border-cyan-300/30 hover:text-white"
             >
+              <FiArrowUpRight size={16} className="text-cyan-300" />
               Connect
             </a>
           </div>
