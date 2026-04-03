@@ -64,7 +64,7 @@ export function PortfolioShell() {
       <div className="relative z-10">
         <header className="fixed inset-x-0 top-0 z-40 px-6 py-5 sm:px-10 lg:px-16">
           <div className="glass-panel mx-auto flex w-full max-w-7xl items-center justify-between rounded-full px-5 py-3">
-            <a href="#hero" className="text-sm uppercase tracking-[0.35em] text-white">
+            <a href="#hero" className="text-lg ps-4 uppercase tracking-[0.35em] text-white">
               Sunil Jangid
             </a>
             <div className="hidden items-center gap-5 md:flex">
