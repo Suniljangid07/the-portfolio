@@ -206,9 +206,11 @@ export const skillCategories: SkillCategory[] = [
     skills: [
       "Google APIs",
       "Microsoft APIs",
+      "OpenAI APIs (ChatGPT)",
       "Meta APIs",
       "Open Dental",
       "NexHealth",
+      "NetSuite APIs",
       "OAuth 2.0",
       "Webhook Orchestration",
       "API Normalization",

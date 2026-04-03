@@ -1,36 +1,123 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# The Portfolio
 
-## Getting Started
+An immersive portfolio for Sunil Jangid built with Next.js, React, Tailwind CSS, Framer Motion, and React Three Fiber.
 
-First, run the development server:
+This project is designed as a futuristic, high-polish developer portfolio that presents engineering depth through interactive storytelling, 3D motion, system design framing, and project-led case studies.
+
+## Overview
+
+The experience is structured as a single-page journey where scroll movement, motion design, layered gradients, glass panels, and a fixed 3D scene work together to create a premium product feel.
+
+The portfolio highlights:
+
+- founding-engineer level product ownership
+- AI-first and integration-heavy systems
+- multi-tenant platform architecture
+- workflow automation and realtime product thinking
+- polished frontend execution backed by strong backend fundamentals
+
+## Tech Stack
+
+- Next.js App Router
+- React
+- TypeScript
+- Tailwind CSS
+- Framer Motion
+- Three.js
+- React Three Fiber
+- React Three Drei
+
+## Key Sections
+
+- Hero: editorial landing section with system-focused positioning
+- About: structured journey from PLC engineering to founding engineer ownership
+- Skills: capability clusters across frontend, backend, cloud, integrations, and engineering principles
+- Selected Work: detailed case-study cards with expanded modal content
+- Experience: timeline with role, location, and date ranges
+- Architecture: productized system-design showcase with layers and flow stages
+- GitHub + Work: public repo surface with graceful fallback data
+- Contact + Footer: conversion-ready close with social links and final positioning
+
+## Project Structure
+
+```text
+app/
+components/
+  portfolio/
+  ui/
+lib/
+sections/
+public/
+```
+
+## Local Development
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the dev server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```text
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Run lint:
 
-## Learn More
+```bash
+npm run lint
+```
 
-To learn more about Next.js, take a look at the following resources:
+Create a production build:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run build
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Customization
 
-## Deploy on Vercel
+Most content is managed from:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `lib/data.ts` for portfolio content, skills, projects, experience, architecture, and hero data
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Main section implementations live in:
+
+- `sections/hero-section.tsx`
+- `sections/about-section.tsx`
+- `sections/skills-section.tsx`
+- `sections/projects-section.tsx`
+- `sections/experience-section.tsx`
+- `sections/architecture-section.tsx`
+- `sections/github-section.tsx`
+- `sections/contact-section.tsx`
+- `sections/footer-section.tsx`
+
+Global styling is defined in:
+
+- `app/globals.css`
+
+The 3D background scene is implemented in:
+
+- `components/portfolio/scene-canvas.tsx`
+
+## Notes
+
+- GitHub repositories are fetched client-side and fall back to curated static data if the API is unavailable or rate-limited.
+- The project is intentionally data-driven so content changes can be made without redesigning the section components.
+- The design system uses gradients, glassmorphism, and neon-accented dark visuals to keep the experience visually distinctive.
+
+## Author
+
+Sunil Jangid  
+Founding Software Engineer
+
+- LinkedIn: https://www.linkedin.com/in/suniljangid07/
+- GitHub: https://github.com/Suniljangid07

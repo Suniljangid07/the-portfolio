@@ -40,6 +40,29 @@ body {
   font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
 }
 
+@media (pointer: fine) {
+  html,
+  body {
+    cursor: url("/cursor-default.svg") 8 18, auto;
+  }
+
+  a,
+  button,
+  input,
+  textarea,
+  select,
+  label,
+  [role="button"] {
+    cursor: url("/cursor-interactive.svg") 20 20, pointer !important;
+  }
+
+  a:active,
+  button:active,
+  [role="button"]:active {
+    cursor: url("/cursor-active.svg") 8 18, pointer !important;
+  }
+}
+
 a {
   color: inherit;
   text-decoration: none;
