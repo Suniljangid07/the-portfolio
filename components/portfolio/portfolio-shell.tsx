@@ -36,7 +36,7 @@ export function PortfolioShell() {
         className="fixed left-0 right-0 top-0 z-50 h-0.5 origin-left bg-[linear-gradient(90deg,#5ce1ff,#67f5d6,#f48dff)]"
       />
 
-      <div className="pointer-events-none fixed left-5 top-1/2 z-40 hidden -translate-y-1/2 xl:block">
+      <div className="pointer-events-none fixed left-5 top-1/2 z-40 hidden -translate-y-1/2 min-[1400px]:block">
         <div className="glass-panel rounded-full px-3 py-12">
           <div className="flex flex-col items-center gap-3">
             {navItems.map((item) => (

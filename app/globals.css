@@ -80,10 +80,7 @@ textarea {
 }
 
 .bg-grid {
-  background-image:
-    linear-gradient(rgba(120, 144, 255, 0.09) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(120, 144, 255, 0.09) 1px, transparent 1px);
-  background-size: 72px 72px;
+  background-image: none;
 }
 
 .bg-noise::before {

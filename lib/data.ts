@@ -62,7 +62,7 @@ export const navItems: NavItem[] = [
 export const heroStats = [
   { label: "Core focus", value: "AI systems + integrations" },
   { label: "Operating mode", value: "Product, platform, ownership" },
-  { label: "Favorite problems", value: "Multi-tenant, real-time, automation" },
+  { label: "Favorite problems", value: "Multi-tenant, real-time, AI-first automation" },
 ];
 
 export const heroSignals = [
