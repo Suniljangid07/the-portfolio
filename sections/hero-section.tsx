@@ -68,7 +68,7 @@ export function HeroSection() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.18 + index * 0.08, duration: 0.6 }}
-                  className="rounded-[24px] border border-white/10 bg-white/5 p-4 backdrop-blur-xl"
+                  className="rounded-3xl border border-white/10 bg-white/5 p-4 backdrop-blur-xl"
                 >
                   <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.28em] text-slate-500">
                     <HighlightIcon className={index === 1 ? "text-cyan-300" : "text-fuchsia-300"} size={14} />
@@ -124,7 +124,7 @@ export function HeroSection() {
                 return (
                   <div
                     key={item.label}
-                    className="rounded-[24px] border border-white/8 bg-white/4 p-5"
+                    className="rounded-3xl border border-white/8 bg-white/4 p-5"
                   >
                     <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.28em] text-slate-500">
                       <StatIcon className="text-cyan-300" size={14} />

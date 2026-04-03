@@ -23,7 +23,7 @@ export function SkillsSection() {
               viewport={{ once: true, amount: 0.2 }}
               transition={{ delay: index * 0.1, duration: 0.65 }}
               whileHover={{ y: -8 }}
-              className="glass-panel rounded-[32px] p-7"
+              className="glass-panel rounded-4xl p-7"
             >
               {(() => {
                 const IconSpec = categoryIconMap[category.name];

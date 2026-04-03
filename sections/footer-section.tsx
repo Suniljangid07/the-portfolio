@@ -4,7 +4,7 @@ import { footerLinks } from "@/lib/data";
 export function FooterSection() {
   return (
     <footer className="relative px-6 pb-10 sm:px-10 lg:px-16">
-      <div className="glass-panel mx-auto max-w-7xl rounded-[32px] px-6 py-8 sm:px-8">
+      <div className="glass-panel mx-auto max-w-7xl rounded-4xl px-6 py-8 sm:px-8">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="text-xs uppercase tracking-[0.35em] text-cyan-200">

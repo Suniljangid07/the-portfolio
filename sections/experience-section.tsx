@@ -26,7 +26,7 @@ export function ExperienceSection() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.15 }}
               transition={{ duration: 0.7 }}
-              className="grid gap-6 rounded-[32px] border border-white/10 bg-[rgba(7,11,22,0.82)] p-7 shadow-[0_25px_70px_rgba(0,0,0,0.28)] lg:grid-cols-[220px_1fr]"
+              className="grid gap-6 rounded-4xl border border-white/10 bg-[rgba(7,11,22,0.82)] p-7 shadow-[0_25px_70px_rgba(0,0,0,0.28)] lg:grid-cols-[220px_1fr]"
             >
               <div>
                 <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-cyan-200">
@@ -49,7 +49,7 @@ export function ExperienceSection() {
                   {item.achievements.map((achievement) => (
                     <div
                       key={achievement}
-                      className="rounded-[24px] border border-white/8 bg-white/4 p-5 text-sm leading-7 text-slate-300"
+                      className="rounded-3xl border border-white/8 bg-white/4 p-5 text-sm leading-7 text-slate-300"
                     >
                       {achievement}
                     </div>

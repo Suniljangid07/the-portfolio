@@ -118,7 +118,7 @@ export function AboutSection() {
           </div>
 
           <div className="space-y-6">
-            <div className="glass-panel rounded-[32px] p-7">
+            <div className="glass-panel rounded-4xl p-7">
               <div className="text-xs uppercase tracking-[0.3em] text-cyan-200">
                 Narrative arc
               </div>
@@ -159,7 +159,7 @@ export function AboutSection() {
               </div>
             </div>
 
-            <div className="glass-panel rounded-[32px] p-7">
+            <div className="glass-panel rounded-4xl p-7">
               <div className="text-xs uppercase tracking-[0.3em] text-cyan-200">
                 Engineering thesis
               </div>

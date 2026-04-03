@@ -51,7 +51,7 @@ export function ContactSection() {
               <textarea
                 rows={6}
                 placeholder="Tell me about the product, system, or challenge."
-                className="w-full rounded-[24px] border border-white/10 bg-white/6 px-4 py-3 text-white outline-none transition focus:border-cyan-300/50 focus:bg-white/8"
+                className="w-full rounded-3xl border border-white/10 bg-white/6 px-4 py-3 text-white outline-none transition focus:border-cyan-300/50 focus:bg-white/8"
               />
             </label>
             <div className="flex flex-wrap items-center justify-between gap-4 pt-3">

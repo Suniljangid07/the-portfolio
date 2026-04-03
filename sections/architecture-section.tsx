@@ -153,7 +153,7 @@ export function ArchitectureSection() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, amount: 0.35 }}
                     transition={{ delay: index * 0.08, duration: 0.55 }}
-                    className="rounded-[24px] border border-white/8 bg-white/4 p-5"
+                    className="rounded-3xl border border-white/8 bg-white/4 p-5"
                   >
                     {(() => {
                       const iconSpec = architectureStageIconMap[stage.step];
