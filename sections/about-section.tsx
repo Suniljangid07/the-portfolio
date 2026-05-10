@@ -1,190 +1,195 @@
-"use client";
+'use client';
 
-import { motion } from "framer-motion";
-import { SectionHeading } from "@/components/ui/section-heading";
-import { aboutJourneyIconMap, aboutSummaryIconMap } from "@/lib/iconography";
-import { journey } from "@/lib/data";
+import { SectionHeading } from '@/components/ui/section-heading';
+import { Card3D } from '@/components/ui/card-3d';
+import { SectionReveal } from '@/components/ui/section-reveal';
+import {
+    RiBrain2Line,
+    RiRocketLine,
+    RiCpuLine,
+    RiLightbulbFlashLine,
+} from 'react-icons/ri';
+import { TbTopologyStar3 } from 'react-icons/tb';
+import Image from 'next/image';
 
 export function AboutSection() {
-  return (
-    <section id="about" className="relative min-h-screen px-6 py-24 sm:px-10 lg:px-16">
-      <div className="mx-auto max-w-7xl">
-        <SectionHeading
-          eyebrow="About"
-          title="An engineer shaped by systems thinking."
-          description="The throughline across controls, product engineering, and founding work is the same: understand the system deeply, then remove friction until it feels inevitable."
-        />
-        <div className="mt-8 grid gap-4 lg:grid-cols-3">
-          {[
-            {
-              label: "Core throughline",
-              value: "Understand the system deeply before trying to optimize it.",
-            },
-            {
-              label: "Working style",
-              value: "Reduce friction until the product and the underlying system both feel inevitable.",
-            },
-            {
-              label: "Engineering lens",
-              value: "Reliability, ownership, and clarity across every layer of the stack.",
-            },
-          ].map((item, index) => (
-            <motion.div
-              key={item.label}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ delay: index * 0.07, duration: 0.5 }}
-              className="glass-panel rounded-[26px] p-5"
-            >
-              {(() => {
-                const iconSpec = aboutSummaryIconMap[item.label];
-                const SummaryIcon = iconSpec?.icon;
+    return (
+        <section
+            id="about"
+            className="section-shell relative px-6 py-28 sm:px-10 lg:px-16"
+        >
+            <div className="mx-auto max-w-7xl">
+                <SectionHeading
+                    eyebrow="About"
+                    title="Elevating human potential through transformative technology."
+                    description="A self-taught engineer driven by curiosity, bridging the gap between creative vision and analytical execution."
+                />
 
-                return (
-                  <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.28em] text-slate-500">
-                    {SummaryIcon ? (
-                      <SummaryIcon className={iconSpec.className} size={iconSpec.size ?? 16} />
-                    ) : null}
-                    {item.label}
-                  </div>
-                );
-              })()}
-              <p className="mt-3 text-sm leading-7 text-white">{item.value}</p>
-            </motion.div>
-          ))}
-        </div>
+                <div className="mt-16 grid gap-6 md:grid-cols-3">
+                    {/* Main Mission - spans 2 cols, 2 rows */}
+                    <SectionReveal className="md:col-span-2 md:row-span-2 h-full">
+                        <Card3D
+                            glow="cyan"
+                            className="h-full rounded-[32px] sm:rounded-[40px] p-8 sm:p-12 border border-white/10 bg-white/5 backdrop-blur-xl flex flex-col justify-between group overflow-hidden"
+                        >
+                            <div className="absolute top-0 right-0 -mt-8 -mr-8 h-64 w-64 rounded-full bg-cyan-500/10 blur-[80px] transition-all duration-700 group-hover:bg-cyan-400/20" />
 
-        <div className="mt-14 grid gap-6 xl:grid-cols-[1.2fr_0.8fr]">
-          <div className="grid gap-6">
-          {journey.map((item, index) => (
-            <motion.article
-              key={item.id}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ delay: index * 0.08, duration: 0.6 }}
-              className="glass-panel rounded-[30px] p-7"
-            >
-              {(() => {
-                const iconSpec = aboutJourneyIconMap[item.title];
-                const JourneyIcon = iconSpec?.icon;
+                            <div className="relative">
+                                <div className="flex items-center gap-2">
+                                    <div className="flex h-20 w-20 min-w-[5rem] items-center justify-center ">
+                                        <Image
+                                            src="/globe_world.png"
+                                            alt="Globe Vector"
+                                            width={100}
+                                            height={100}
+                                            className="object-contain drop-shadow-[0_0_8px_rgba(34,211,238,0.)]"
+                                        />
+                                    </div>
+                                    <h3 className="font-display text-3xl sm:text-4xl font-semibold tracking-[-0.04em] text-white leading-tight">
+                                        On a mission to unravel the complexities
+                                        of the digital landscape.
+                                    </h3>
+                                </div>
+                                <p className="mt-6 text-base sm:text-lg leading-relaxed text-slate-300">
+                                    Driven by an adventurous spirit and an
+                                    unyielding thirst for knowledge, I believe
+                                    in the transformative power of technology to
+                                    elevate human potential. My goal is to
+                                    pioneer solutions that not only advance
+                                    industries but also inspire curiosity and
+                                    seamless collaboration.
+                                </p>
+                                <p className="mt-4 text-base sm:text-lg leading-relaxed text-slate-300">
+                                    I am eager to engage with visionary teams to
+                                    co-create groundbreaking advancements that
+                                    redefine what&apos;s possible.
+                                </p>
+                            </div>
+                        </Card3D>
+                    </SectionReveal>
 
-                return (
-                  <>
-              <div className="flex flex-wrap items-start justify-between gap-4">
-                <div className="flex items-start gap-4">
-                  <div className="rounded-full border border-cyan-300/20 bg-cyan-300/8 px-3 py-1 text-xs uppercase tracking-[0.25em] text-cyan-100">
-                    {item.step}
-                  </div>
-                  {JourneyIcon ? (
-                    <div className="mt-0.5 flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/6">
-                      <JourneyIcon className={iconSpec.className} size={iconSpec.size ?? 20} />
-                    </div>
-                  ) : null}
-                  <div>
-                    <div className="text-xs uppercase tracking-[0.28em] text-slate-500">
-                      {item.eyebrow}
-                    </div>
-                    <h3 className="mt-2 text-2xl font-semibold text-white">{item.title}</h3>
-                  </div>
+                    {/* Interests - spans 1 col, 1 row */}
+                    <SectionReveal
+                        className="md:col-span-1 md:row-span-1 h-full"
+                        delay={0.1}
+                    >
+                        <Card3D
+                            glow="purple"
+                            className="h-full rounded-[32px] p-8 border border-white/10 bg-white/5 backdrop-blur-xl flex flex-col justify-between group overflow-hidden"
+                        >
+                            <div className="absolute bottom-0 right-0 -mb-8 -mr-8 h-40 w-40 rounded-full bg-fuchsia-500/10 blur-[60px] transition-all duration-700 group-hover:bg-fuchsia-400/20" />
+                            <div className="relative flex items-center">
+                                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-fuchsia-400/20 bg-fuchsia-400/10 text-fuchsia-300">
+                                    <RiRocketLine size={24} />
+                                </div>
+                                <h4 className="font-display text-lg font-semibold text-white ml-3 flex-1 text-left">
+                                    Future Horizons
+                                </h4>
+                                <TbTopologyStar3
+                                    className="shrink-0 text-slate-500/30 group-hover:text-fuchsia-400/50 transition-colors duration-500"
+                                    size={36}
+                                />
+                            </div>
+                            <div className="relative mt-6">
+                                <p className="text-sm leading-relaxed text-slate-300">
+                                    Profoundly interested in Artificial
+                                    Intelligence, Robotics, and Space
+                                    Innovation. Always looking toward the next
+                                    frontier.
+                                </p>
+                            </div>
+                        </Card3D>
+                    </SectionReveal>
+
+                    {/* The Why - spans 1 col, 1 row */}
+                    <SectionReveal
+                        className="md:col-span-1 md:row-span-1 h-full"
+                        delay={0.2}
+                    >
+                        <Card3D
+                            glow="blue"
+                            className="h-full rounded-[32px] p-8 border border-white/10 bg-white/5 backdrop-blur-xl flex flex-col justify-between group overflow-hidden"
+                        >
+                            <div className="absolute bottom-0 right-0 -mb-8 -mr-8 h-40 w-40 rounded-full bg-blue-500/10 blur-[60px] transition-all duration-700 group-hover:bg-blue-400/20" />
+                            <div className="relative flex items-center">
+                                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-blue-400/20 bg-blue-400/10 text-blue-300">
+                                    <RiLightbulbFlashLine size={24} />
+                                </div>
+                                <h4 className="font-display text-lg font-semibold text-white ml-3 flex-1 text-left">
+                                    The &quot;Why&quot;
+                                </h4>
+                                <RiBrain2Line
+                                    className="shrink-0 text-slate-500/30 group-hover:text-blue-400/50 transition-colors duration-500"
+                                    size={36}
+                                />
+                            </div>
+                            <div className="relative mt-6">
+                                <p className="text-sm leading-relaxed text-slate-300">
+                                    Fueled by a relentless pursuit of
+                                    understanding the fundamental reasons behind
+                                    technology, thriving at the intersection of
+                                    creativity and logic.
+                                </p>
+                            </div>
+                        </Card3D>
+                    </SectionReveal>
+
+                    {/* Toolkit / Origin - spans 3 cols, 1 row */}
+                    <SectionReveal
+                        className="md:col-span-3 md:row-span-1 h-full"
+                        delay={0.3}
+                    >
+                        <Card3D
+                            glow="cyan"
+                            className="h-full rounded-[32px] sm:rounded-[40px] p-8 sm:p-10 border border-white/10 bg-white/5 backdrop-blur-xl flex flex-col md:flex-row gap-8 items-center justify-between overflow-hidden group"
+                        >
+                            <div className="absolute top-1/2 left-1/4 -translate-y-1/2 h-64 w-64 rounded-full bg-emerald-500/5 blur-[100px] transition-all duration-700 group-hover:bg-emerald-400/15" />
+                            <div className="relative md:w-1/2">
+                                <div className="flex items-center gap-3 mb-4">
+                                    <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-emerald-400/20 bg-emerald-400/10 text-emerald-300">
+                                        <RiCpuLine size={20} />
+                                    </div>
+                                    <span className="font-mono text-xs uppercase tracking-[0.2em] text-emerald-200">
+                                        The Engineering Mindset
+                                    </span>
+                                </div>
+                                <h3 className="font-display text-2xl font-semibold text-white">
+                                    Bridging Automation & Architecture
+                                </h3>
+                                <p className="mt-3 text-sm leading-relaxed text-slate-300">
+                                    Starting in industrial automation instilled
+                                    a deep respect for reliability—where systems
+                                    simply cannot fail. I carry this resilience
+                                    into modern software engineering. Whether
+                                    orchestrating complex data pipelines or
+                                    crafting intuitive product interfaces, my
+                                    approach centers on building scalable,
+                                    fault-tolerant architectures that seamlessly
+                                    unite vision with execution.
+                                </p>
+                            </div>
+
+                            <div className="relative md:w-1/2 flex flex-wrap gap-3 justify-start md:justify-end">
+                                {[
+                                    'Systems Architecture',
+                                    'Product Engineering',
+                                    'Resilient Design',
+                                    'Cross-System Integrations',
+                                    'Rapid Adaptation',
+                                    'End-to-End Execution',
+                                ].map((skill) => (
+                                    <span
+                                        key={skill}
+                                        className="rounded-full border border-white/10 bg-white/5 px-5 py-2.5 text-[13px] font-medium text-slate-300 shadow-sm backdrop-blur-md transition-all hover:bg-white/10 hover:text-white hover:border-cyan-300/30"
+                                    >
+                                        {skill}
+                                    </span>
+                                ))}
+                            </div>
+                        </Card3D>
+                    </SectionReveal>
                 </div>
-                <div className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-slate-300">
-                  {item.signal}
-                </div>
-              </div>
-              <p className="mt-5 text-sm leading-7 text-slate-300">{item.description}</p>
-              <div className="mt-6 flex flex-wrap gap-3">
-                {item.strengths.map((strength) => (
-                  <span
-                    key={strength}
-                    className="rounded-full border border-white/10 bg-white/4 px-4 py-2 text-sm text-slate-200"
-                  >
-                    {strength}
-                  </span>
-                ))}
-              </div>
-              <div className="mt-6 rounded-[22px] border border-white/8 bg-black/20 px-4 py-4">
-                <div className="text-xs uppercase tracking-[0.28em] text-slate-500">
-                  What it shaped
-                </div>
-                <p className="mt-3 text-sm leading-7 text-slate-300">{item.outcome}</p>
-              </div>
-                  </>
-                );
-              })()}
-            </motion.article>
-          ))}
-          </div>
-
-          <div className="space-y-6">
-            <div className="glass-panel rounded-4xl p-7">
-              <div className="text-xs uppercase tracking-[0.3em] text-cyan-200">
-                Narrative arc
-              </div>
-              <h3 className="mt-4 text-2xl font-semibold text-white">
-                From controls to product systems.
-              </h3>
-              <div className="mt-6 space-y-5">
-                {journey.map((item, index) => (
-                  <motion.div
-                    key={`${item.id}-arc`}
-                    initial={{ opacity: 0, x: 24 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, amount: 0.35 }}
-                  transition={{ delay: index * 0.08, duration: 0.5 }}
-                  className="rounded-[22px] border border-white/8 bg-white/4 p-5"
-                >
-                  {(() => {
-                    const iconSpec = aboutJourneyIconMap[item.title];
-                    const JourneyIcon = iconSpec?.icon;
-
-                    return (
-                      <>
-                    <div className="flex items-center gap-4">
-                      <div className="rounded-full border border-cyan-300/20 bg-cyan-300/8 px-3 py-1 text-xs uppercase tracking-[0.25em] text-cyan-100">
-                        {item.step}
-                      </div>
-                      {JourneyIcon ? (
-                        <JourneyIcon className={iconSpec.className} size={iconSpec.size ?? 16} />
-                      ) : null}
-                      <div className="text-sm font-medium text-white">{item.title}</div>
-                    </div>
-                    <p className="mt-4 text-sm leading-7 text-slate-300">{item.signal}</p>
-                      </>
-                    );
-                  })()}
-                  </motion.div>
-                ))}
-              </div>
             </div>
-
-            <div className="glass-panel rounded-4xl p-7">
-              <div className="text-xs uppercase tracking-[0.3em] text-cyan-200">
-                Engineering thesis
-              </div>
-              <div className="mt-6 space-y-4">
-                {[
-                  "Reliable systems come from understanding edge cases early, not patching them late.",
-                  "Great product engineering connects user experience and backend correctness instead of treating them separately.",
-                  "Ownership means building the invisible layers that keep the visible product strong.",
-                ].map((principle, index) => (
-                  <motion.div
-                    key={principle}
-                    initial={{ opacity: 0, y: 18 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.4 }}
-                    transition={{ delay: index * 0.08, duration: 0.45 }}
-                    className="rounded-[22px] border border-white/8 bg-white/4 p-5 text-sm leading-7 text-slate-300"
-                  >
-                    {principle}
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+        </section>
+    );
 }

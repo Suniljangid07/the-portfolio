@@ -1,47 +1,82 @@
-import { socialIconMap } from "@/lib/iconography";
-import { footerLinks } from "@/lib/data";
+import { navItems, footerLinks } from '@/lib/data';
+import { socialIconMap } from '@/lib/iconography';
 
 export function FooterSection() {
-  return (
-    <footer className="relative px-6 pb-10 sm:px-10 lg:px-16">
-      <div className="glass-panel mx-auto max-w-7xl rounded-4xl px-6 py-8 sm:px-8">
-        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-          <div>
-            <p className="text-xs uppercase tracking-[0.35em] text-cyan-200">
-              Portfolio Footer
-            </p>
-            <h3 className="mt-3 text-2xl font-semibold text-white">
-              Building AI-first products, secure systems, and integration-heavy platforms.
-            </h3>
-            <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-300">
-              Sunil Jangid. Founding Software Engineer focused on product depth,
-              platform thinking, and execution that scales.
-            </p>
-          </div>
-          <div className="flex flex-wrap gap-3">
-            {footerLinks.map((link) => (
-              (() => {
-                const iconSpec = socialIconMap[link.label];
-                const SocialIcon = iconSpec?.icon;
-                return (
-                  <a
-                    key={link.label}
-                    href={link.href}
-                    target={link.href.startsWith("http") ? "_blank" : undefined}
-                    rel={link.href.startsWith("http") ? "noreferrer" : undefined}
-                    className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-200 transition hover:border-cyan-300/30 hover:text-white"
-                  >
-                    {SocialIcon ? (
-                      <SocialIcon className={iconSpec.className} size={iconSpec.size ?? 16} />
-                    ) : null}
-                    {link.label}
-                  </a>
-                );
-              })()
-            ))}
-          </div>
-        </div>
-      </div>
-    </footer>
-  );
+    return (
+        <footer className="relative px-6 pb-10 pt-8 sm:px-10 lg:px-16">
+            <div className="mx-auto max-w-7xl">
+                <div className="h-px bg-[linear-gradient(90deg,rgba(0,212,255,0),rgba(0,212,255,0.55),rgba(124,58,237,0))]" />
+
+                <div className="mt-8 grid gap-8 lg:grid-cols-3">
+                    <div>
+                        <div className="font-display text-2xl font-semibold tracking-[-0.05em] text-white">
+                            Sunil Jangid
+                        </div>
+                        <p className="mt-3 max-w-sm text-sm leading-7 text-slate-300">
+                            Founding Software Engineer building systems that
+                            feel clear, fast, and inevitable.
+                        </p>
+                        <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.26em] text-slate-500">
+                            © 2026 Sunil Jangid
+                        </p>
+                    </div>
+
+                    <div>
+                        <div className="font-mono text-[11px] uppercase tracking-[0.3em] text-slate-500">
+                            Navigation
+                        </div>
+                        <div className="mt-4 flex flex-wrap gap-3">
+                            {navItems.slice(1).map((item) => (
+                                <a
+                                    key={item.id}
+                                    href={`#${item.id}`}
+                                    className="data-chip font-mono text-[11px] uppercase tracking-[0.18em] text-slate-200"
+                                >
+                                    {item.label}
+                                </a>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div>
+                        <div className="font-mono text-[11px] uppercase tracking-[0.3em] text-slate-500">
+                            Social
+                        </div>
+                        <div className="mt-4 flex flex-wrap gap-3">
+                            {footerLinks.map((link) => {
+                                const iconSpec = socialIconMap[link.label];
+                                const Icon = iconSpec?.icon;
+
+                                return (
+                                    <a
+                                        key={link.label}
+                                        href={link.href}
+                                        target={
+                                            link.href.startsWith('http')
+                                                ? '_blank'
+                                                : undefined
+                                        }
+                                        rel={
+                                            link.href.startsWith('http')
+                                                ? 'noreferrer'
+                                                : undefined
+                                        }
+                                        className="data-chip inline-flex items-center gap-2 text-sm text-slate-200 transition hover:border-cyan-300/30 hover:text-white"
+                                    >
+                                        {Icon ? (
+                                            <Icon
+                                                className={iconSpec.className}
+                                                size={iconSpec.size ?? 16}
+                                            />
+                                        ) : null}
+                                        {link.label}
+                                    </a>
+                                );
+                            })}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    );
 }
