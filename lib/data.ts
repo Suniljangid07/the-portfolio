@@ -492,8 +492,8 @@ export const projects: Project[] = [
     },
     {
         title: 'Sponiscore',
-        slug: 'sponiscore',
-        url: 'https://sponiscore.com',
+        slug: 'sponsicore',
+        url: 'https://sponsicore.com',
         description:
             'A digital platform designed to provide actionable scoring, analytics, and insights for complex datasets.',
         impact: 'Created a robust system for tracking and scoring metrics, providing users with a clear, data-driven dashboard.',
