@@ -32,7 +32,7 @@ export function SkillsSection() {
     return (
         <section
             id="skills"
-            className="section-shell relative px-6 py-28 sm:px-10 lg:px-16"
+            className="section-shell relative px-6 py-20 sm:px-10 lg:px-16"
         >
             <div className="mx-auto max-w-7xl">
                 <SectionHeading
@@ -62,7 +62,7 @@ export function SkillsSection() {
                     </motion.div>
                 </div>
 
-                <div className="mt-14 grid gap-6 lg:grid-cols-2">
+                <div className="mt-14 grid gap-6 lg:grid-cols-3">
                     {skillCategories.map((category, index) => {
                         const iconSpec = categoryIconMap[category.name];
                         const CategoryIcon = iconSpec.icon;
@@ -76,30 +76,30 @@ export function SkillsSection() {
                             >
                                 <Card3D
                                     glow={glow}
-                                    className="rounded-[32px] p-6 h-full"
+                                    className="rounded-[32px] p-4 h-full"
                                 >
                                     <div className="flex items-start  justify-between gap-4">
                                         <div className="flex items-center gap-4">
-                                            <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/6">
+                                            <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-white/6">
                                                 <CategoryIcon
                                                     className={
                                                         iconSpec.className
                                                     }
-                                                    size={iconSpec.size ?? 20}
+                                                    size={iconSpec.size ?? 16}
                                                 />
                                             </div>
                                             <div>
-                                                <h3 className="mt-1 font-display text-2xl font-semibold text-white">
+                                                <h3 className="mt-1 font-display text-xl font-semibold text-white">
                                                     {category.name}
                                                 </h3>
-                                                <p className="text-sm leading-7 text-slate-300">
+                                                {/* <p className="text-xs leading-7 text-slate-300 truncate text-ellipsis">
                                                     {category.description}
-                                                </p>
+                                                </p> */}
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div className="mt-5 flex flex-wrap gap-3">
+                                    <div className="mt-3 flex flex-wrap gap-3">
                                         {category.skills.map((skill) => {
                                             const spec = skillIconMap[skill];
                                             return (
@@ -120,7 +120,7 @@ export function SkillsSection() {
                     })}
                 </div>
 
-                <div className="mt-14">
+                {/* <div className="mt-14">
                     <div className="eyebrow-chip">Capabilities</div>
                     <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
                         {capabilities.map((capability, index) => {
@@ -157,7 +157,7 @@ export function SkillsSection() {
                             );
                         })}
                     </div>
-                </div>
+                </div> */}
             </div>
         </section>
     );

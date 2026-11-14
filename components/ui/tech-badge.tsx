@@ -17,11 +17,11 @@ export function TechBadge({
     return (
         <span
             className={cn(
-                'data-chip font-stretch-normal text-[14px] tracking-[0.22em] text-slate-200',
+                'data-chip font-stretch-normal text-[11px] tracking-[0.22em] text-slate-200',
                 className,
             )}
         >
-            {Icon ? <Icon className={iconClassName} size={28} /> : null}
+            {Icon ? <Icon className={iconClassName} size={20} /> : null}
             {label}
         </span>
     );

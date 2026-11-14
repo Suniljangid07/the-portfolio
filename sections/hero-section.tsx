@@ -51,39 +51,16 @@ export function HeroSection() {
     return (
         <section
             id="hero"
-            className="section-shell relative flex min-h-screen items-center overflow-hidden px-6 pb-20 pt-20 sm:px-10 lg:px-16 lg:pb-28 lg:pt-24"
+            className="section-shell relative flex min-h-screen items-center overflow-hidden px-6 pb-20 pt-20 sm:px-10 lg:px-16 lg:pb-28 lg:pt-32"
         >
             <div className="absolute inset-x-0 top-8 h-[42rem] bg-[radial-gradient(circle_at_24%_24%,rgba(0,212,255,0.16),transparent_22%),radial-gradient(circle_at_70%_15%,rgba(79,142,247,0.18),transparent_24%),radial-gradient(circle_at_60%_62%,rgba(124,58,237,0.12),transparent_26%)]" />
             <div className="mx-auto w-full max-w-7xl">
-                <div className="mt-7 flex gap-3">
-                    {heroSignals.map((signal, index) => {
-                        const SignalIcon =
-                            signalIcons[index] ?? MdOutlineEngineering;
-
-                        return (
-                            <span
-                                key={signal}
-                                className="data-chip font-space_grotesk_154b09cb-module__lmdqzG__variable text-[11px] uppercase tracking-[0.24em] text-slate-300"
-                            >
-                                <SignalIcon
-                                    className={
-                                        index % 2 === 0
-                                            ? 'text-cyan-300'
-                                            : 'text-purple-300'
-                                    }
-                                    size={14}
-                                />
-                                {signal}
-                            </span>
-                        );
-                    })}
-                </div>
                 <div className="grid gap-8 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
                     <SectionReveal className="relative z-10 max-w-full">
                         <h1 className="mt-10 font-display text-[3.7rem] font-semibold leading-[0.88] tracking-[-0.09em] text-white sm:text-[5.4rem] lg:text-[6.45rem]">
                             Sunil Jangid
                             <span className="mt-3 block text-shimmer">
-                                builds systems feel clear, fast, and inevitable.
+                                builds thoughtful software.
                             </span>
                         </h1>
 
@@ -108,10 +85,7 @@ export function HeroSection() {
                         </div>
 
                         <p className="mt-8 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
-                            Founding Software Engineer focused on AI-enabled
-                            products, integration-heavy platforms, secure
-                            multi-tenant systems, and clean interfaces backed by
-                            resilient product architecture.
+                            Founding Software Engineer building AI-enabled products and reliable platforms.
                         </p>
 
                         <div className="mt-10 flex flex-wrap gap-4">

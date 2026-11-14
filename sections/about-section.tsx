@@ -16,13 +16,13 @@ export function AboutSection() {
     return (
         <section
             id="about"
-            className="section-shell relative px-6 py-28 sm:px-10 lg:px-16"
+            className="section-shell relative px-6 py-20 sm:px-10 lg:px-16"
         >
             <div className="mx-auto max-w-7xl">
                 <SectionHeading
                     eyebrow="About"
-                    title="Elevating human potential through transformative technology."
-                    description="A self-taught engineer driven by curiosity, bridging the gap between creative vision and analytical execution."
+                    title="About me"
+                    description="I build useful, reliable software for complex problems."
                 />
 
                 <div className="mt-16 grid gap-6 md:grid-cols-3">

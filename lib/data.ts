@@ -189,7 +189,7 @@ export const skillCategories: SkillCategory[] = [
     {
         name: 'Backend',
         description:
-            'API design, automation, real-time messaging, and durable workflows.',
+            'API design, automation, real-time messaging.',
         skills: [
             'Node.js',
             'Express.js',
@@ -215,7 +215,7 @@ export const skillCategories: SkillCategory[] = [
     {
         name: 'Cloud',
         description:
-            'Secure multi-tenant deployment models with strong operational visibility.',
+            'Multi-tenant deployment models, operational visibility.',
         skills: [
             'RLS',
             'Serverless',
@@ -236,7 +236,7 @@ export const skillCategories: SkillCategory[] = [
     {
         name: 'Integrations',
         description:
-            'Complex third-party systems made reliable, composable, and measurable.',
+            'Complex third-party systems made reliable.',
         skills: [
             'Google APIs',
             'Microsoft APIs',
@@ -254,6 +254,8 @@ export const skillCategories: SkillCategory[] = [
             'RabbitMQ',
             'SignalR',
             'WebSocket',
+            'Okta SSO',
+            'JWT'
         ],
     },
     {
@@ -264,6 +266,7 @@ export const skillCategories: SkillCategory[] = [
             'SOLID Principles',
             'Design Patterns',
             'Clean Architecture',
+            'Role-Based Access Control (RBAC)',
             'Domain Modeling',
             'Scalable System Design',
             'Separation of Concerns',
@@ -272,11 +275,6 @@ export const skillCategories: SkillCategory[] = [
             'Refactoring',
             'Problem Solving',
         ],
-    },
-    {
-        name: 'Security & Authentication',
-        description: 'Protecting user data and controlling system access.',
-        skills: ['JWT', 'Okta SSO', 'Role-Based Access Control (RBAC)'],
     },
     {
         name: 'Tools & Methodologies',

@@ -6,7 +6,7 @@ export function GithubSection() {
     return (
         <section
             id="github"
-            className="section-shell relative px-6 py-28 sm:px-10 lg:px-16"
+            className="section-shell relative px-6 py-20 sm:px-10 lg:px-16"
         >
             <div className="mx-auto max-w-7xl">
                 <SectionHeading

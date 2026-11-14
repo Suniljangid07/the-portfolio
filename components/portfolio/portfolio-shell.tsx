@@ -4,7 +4,6 @@ import dynamic from 'next/dynamic';
 import { motion, useScroll } from 'framer-motion';
 import { Navbar } from '@/components/nav/navbar';
 import { AboutSection } from '@/sections/about-section';
-import { ArchitectureSection } from '@/sections/architecture-section';
 import { ContactSection } from '@/sections/contact-section';
 import { ExperienceSection } from '@/sections/experience-section';
 import { FooterSection } from '@/sections/footer-section';
@@ -40,12 +39,11 @@ export function PortfolioShell() {
 
                 <main className="relative">
                     <HeroSection />
-                    <AboutSection />
-                    <SkillsSection />
                     <ExperienceSection />
+                    <SkillsSection />
                     <ProjectsSection />
-                    <ArchitectureSection />
                     <GithubSection />
+                    <AboutSection />
                     <ContactSection />
                     <FooterSection />
                 </main>
